@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome Cognome | Portfolio Professionale Moderno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/TUA_CHIAVE_FA.js" crossorigin="anonymous"></script> 
+    </head>
+<body>
+
+    <header class="navbar">
+        <a href="#home" class="logo">Nome Cognome</a>
+        <nav class="nav-links">
+            <a href="#about">Chi Sono</a>
+            <a href="#skills">Compet.</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="cta-link">Contatti</a>
+        </nav>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Ciao, sono **[Il Tuo Ruolo Qui]**</h1>
+                <p>Sono un professionista appassionato di **[Ambito Chiave]**, specializzato in **[Tecnologia/Area di focus]**. Lascia che ti mostri il mio lavoro.</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="button primary-btn">Vedi i Lavori</a>
+                    <a href="CV_TuoNome.pdf" class="button secondary-btn" download>Scarica il CV</a>
+                </div>
+            </div>
+            <div class="hero-image-placeholder">
+                
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>Chi Sono</h2>
+            <p><strong>[Qui metti 2-3 paragrafi sulla tua storia, il tuo approccio al lavoro e i tuoi valori. Sii conciso e d'impatto.]</strong></p>
+            </section>
+
+        <section id="skills" class="content-section light-bg">
+            <h2>Competenze</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>JavaScript, Python</li>
+                        <li>React, Node.js</li>
+                        <li>Figma, Photoshop</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Comunicazione Efficace</li>
+                        <li>Leadership</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="content-section">
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-placeholder"></div>
+                    <h3>Progetto N. 1</h3>
+                    <p>Breve descrizione del progetto e dell'obiettivo raggiunto.</p>
+                    <div class="project-tags"><span>#React</span><span>#Sass</span></div>
+                    <a href="#" class="project-link">Dettagli &rarr;</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-placeholder"></div>
+                    <h3>Progetto N. 2</h3>
+                    <p>Breve descrizione del progetto e dell'obiettivo raggiunto.</p>
+                    <div class="project-tags"><span>#Python</span><span>#ML</span></div>
+                    <a href="#" class="project-link">Dettagli &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section light-bg">
+            <h2>Mettiamoci in contatto</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Nome Completo" required>
+                <input type="email" name="email" placeholder="La Tua Email" required>
+                <textarea name="message" rows="5" placeholder="Il Tuo Messaggio" required></textarea>
+                <button type="submit" class="button primary-btn">Invia Messaggio</button>
+                <p id="form-message"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nome Cognome. Tutti i diritti riservati.</p>
+        <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github-square fa-lg"></i></a>
+            <a href="mailto:tua.email@esempio.com" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
