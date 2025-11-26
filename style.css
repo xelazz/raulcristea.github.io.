@@ -525,3 +525,11 @@ footer {
         width: 100%;
     }
 }
+/* Nuovo Stile Immagine Portfolio */
+.project-image {
+    width: 100%;
+    height: 200px; /* Altezza fissa per coerenza */
+    object-fit: cover; /* Assicura che l'immagine copra lo spazio senza deformarsi */
+    border-bottom: 1px solid #ddd;
+}
+/* Fine Nuovo Stile */
