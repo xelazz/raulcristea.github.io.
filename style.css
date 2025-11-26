@@ -204,7 +204,7 @@ a:hover {
     background-color: var(--color-secondary);
     top: 0;
     bottom: 0;
-    left: 50%;
+    left: 50%; /* Linea centrale fissa */
     margin-left: -2px;
 }
 
@@ -212,17 +212,20 @@ a:hover {
     padding: 10px 40px;
     position: relative;
     width: 50%;
-    background-color: transparent;
+    /* Rimuovi 'background-color: transparent;' */
 }
 
 /* Contenuto di Destra */
 .timeline-item:nth-child(odd) {
     left: 0;
+    text-align: right; /* Allinea il testo a destra */
 }
 
 /* Contenuto di Sinistra */
 .timeline-item:nth-child(even) {
     left: 50%;
+    padding-left: 60px; /* Più spazio per il pallino */
+    text-align: left; /* Allinea il testo a sinistra */
 }
 
 .timeline-date {
@@ -234,14 +237,21 @@ a:hover {
     padding: 5px 15px;
     border-radius: var(--border-radius);
     font-size: 0.9rem;
+    z-index: 10; /* Per essere sicuro che sia sopra la linea */
 }
 
+/* Data a Destra */
 .timeline-item:nth-child(odd) .timeline-date {
-    right: -100px;
+    right: 50%; /* Si posiziona sul lato destro del contenuto */
+    margin-right: -4px; /* Spostato leggermente verso la linea */
+    transform: translateX(100%); /* Sposta l'etichetta fuori dal blocco testo */
 }
 
+/* Data a Sinistra */
 .timeline-item:nth-child(even) .timeline-date {
-    left: -100px;
+    left: 50%;
+    margin-left: 4px; /* Spostato leggermente verso la linea */
+    transform: translateX(-100%); /* Sposta l'etichetta fuori dal blocco testo */
 }
 
 .timeline-item::after {
@@ -256,10 +266,12 @@ a:hover {
     z-index: 1;
 }
 
+/* Pallino a Destra */
 .timeline-item:nth-child(odd)::after {
     right: -9px;
 }
 
+/* Pallino a Sinistra */
 .timeline-item:nth-child(even)::after {
     left: -9px;
 }
@@ -273,6 +285,10 @@ a:hover {
     font-weight: 500;
     color: #555;
     font-style: italic;
+}
+/* Aggiunto per il mobile (responsive) */
+@media (max-width: 900px) {
+    /* ... (Manteniamo gli stili mobile già definiti che sono corretti) ... */
 }
 
 
