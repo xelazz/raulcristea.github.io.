@@ -1,4 +1,4 @@
-/* --- VARIABILI GLOBALI (Palette Professionale) --- */
+/* --- VARIABILI GLOBALI (Palette Professionale Definitiva) --- */
 :root {
     --color-primary: #002D62; /* Navy Scuro Professionale */
     --color-secondary: #00CED1; /* Ciano Brillante (Accento Moderno) */
@@ -41,13 +41,13 @@ h3 { font-size: 1.5rem; }
 p { margin-bottom: 1em; }
 
 a {
-    color: var(--color-primary); /* Link in colore principale */
+    color: var(--color-primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-secondary); /* Hover in colore d'accento */
+    color: var(--color-secondary);
 }
 
 /* --- LAYOUT GENERALE --- */
@@ -197,6 +197,7 @@ a:hover {
     padding: 0 20px;
 }
 
+/* La linea centrale */
 .timeline::after {
     content: '';
     position: absolute;
@@ -204,56 +205,31 @@ a:hover {
     background-color: var(--color-secondary);
     top: 0;
     bottom: 0;
-    left: 50%; /* Linea centrale fissa */
+    left: 50%;
     margin-left: -2px;
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    padding: 10px 0;
     position: relative;
     width: 50%;
-    /* Rimuovi 'background-color: transparent;' */
 }
 
-/* Contenuto di Destra */
+/* Contenuto di Sinistra (Odd) */
 .timeline-item:nth-child(odd) {
     left: 0;
-    text-align: right; /* Allinea il testo a destra */
+    padding-right: 40px; 
+    text-align: right;
 }
 
-/* Contenuto di Sinistra */
+/* Contenuto di Destra (Even) */
 .timeline-item:nth-child(even) {
     left: 50%;
-    padding-left: 60px; /* Più spazio per il pallino */
-    text-align: left; /* Allinea il testo a sinistra */
+    padding-left: 40px; 
+    text-align: left;
 }
 
-.timeline-date {
-    position: absolute;
-    top: 15px;
-    font-weight: 600;
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    padding: 5px 15px;
-    border-radius: var(--border-radius);
-    font-size: 0.9rem;
-    z-index: 10; /* Per essere sicuro che sia sopra la linea */
-}
-
-/* Data a Destra */
-.timeline-item:nth-child(odd) .timeline-date {
-    right: 50%; /* Si posiziona sul lato destro del contenuto */
-    margin-right: -4px; /* Spostato leggermente verso la linea */
-    transform: translateX(100%); /* Sposta l'etichetta fuori dal blocco testo */
-}
-
-/* Data a Sinistra */
-.timeline-item:nth-child(even) .timeline-date {
-    left: 50%;
-    margin-left: 4px; /* Spostato leggermente verso la linea */
-    transform: translateX(-100%); /* Sposta l'etichetta fuori dal blocco testo */
-}
-
+/* Posizionamento del pallino (punto) */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -266,30 +242,42 @@ a:hover {
     z-index: 1;
 }
 
-/* Pallino a Destra */
 .timeline-item:nth-child(odd)::after {
-    right: -9px;
+    right: -11px;
 }
 
-/* Pallino a Sinistra */
 .timeline-item:nth-child(even)::after {
-    left: -9px;
+    left: -11px;
 }
 
-.timeline-item h3 {
-    margin-top: 0;
-    color: var(--color-primary);
+/* Stili per l'etichetta data */
+.timeline-date {
+    position: relative; 
+    font-weight: 600;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    top: auto;
+    right: auto;
+    left: auto;
+    transform: none;
 }
-.timeline-item h4 {
-    margin-top: 0;
-    font-weight: 500;
-    color: #555;
-    font-style: italic;
+
+/* Allineamento data */
+.timeline-item:nth-child(odd) .timeline-date {
+    float: right;
 }
-/* Aggiunto per il mobile (responsive) */
-@media (max-width: 900px) {
-    /* ... (Manteniamo gli stili mobile già definiti che sono corretti) ... */
+.timeline-item:nth-child(even) .timeline-date {
+    float: left;
 }
+
+/* Pulizia generale */
+.timeline-item h3 { margin-top: 0; color: var(--color-primary); }
+.timeline-item h4 { margin-top: 0; font-weight: 500; color: #555; font-style: italic; }
 
 
 /* --- SEZIONE COMPETENZE (Skills) --- */
@@ -349,9 +337,11 @@ a:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.project-placeholder {
-    height: 200px;
-    background-color: #CFD8DC;
+/* Nuovo Stile Immagine Portfolio per coerenza */
+.project-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
     border-bottom: 1px solid #ddd;
 }
 
@@ -437,6 +427,7 @@ footer {
 
 /* --- MEDIA QUERIES (Responsività Mobile) --- */
 @media (max-width: 900px) {
+    /* Hero Section */
     .hero-section {
         flex-direction: column;
         text-align: center;
@@ -454,7 +445,7 @@ footer {
         justify-content: center;
     }
     
-    /* Timeline su Mobile: stack verticale */
+    /* Timeline su Mobile: stack verticale e allineamento a sinistra */
     .timeline::after {
         left: 20px;
     }
@@ -464,19 +455,21 @@ footer {
         padding-left: 60px;
         padding-right: 10px;
         left: 0 !important;
+        text-align: left !important;
     }
 
     .timeline-item::after {
         left: 11px;
     }
     
+    .timeline-item:nth-child(odd)::after { 
+        left: 11px; 
+        right: auto; 
+    }
+
     .timeline-date {
-        position: relative; 
-        left: 0 !important;
-        right: auto !important;
-        display: block;
-        width: fit-content;
-        margin-bottom: 10px;
+        float: left !important; /* Forza la data sempre a sinistra */
+        margin-bottom: 5px;
     }
 }
 
@@ -484,6 +477,7 @@ footer {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
 
+    /* Navigazione Mobile */
     .nav-links {
         display: none;
         flex-direction: column;
@@ -525,11 +519,3 @@ footer {
         width: 100%;
     }
 }
-/* Nuovo Stile Immagine Portfolio */
-.project-image {
-    width: 100%;
-    height: 200px; /* Altezza fissa per coerenza */
-    object-fit: cover; /* Assicura che l'immagine copra lo spazio senza deformarsi */
-    border-bottom: 1px solid #ddd;
-}
-/* Fine Nuovo Stile */
